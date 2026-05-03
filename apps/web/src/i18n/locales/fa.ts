@@ -634,34 +634,9 @@ export const fa: Dict = {
   'qf.cardRefs': 'مراجع:',
   'qf.cardSampleText': 'روباه قهوه‌ای سریع · ۰۱۲۳',
 
-  'fileViewer.deployToVercel': 'Deploy to Vercel',
-  'fileViewer.redeployToVercel': 'Redeploy',
-  'fileViewer.deployingToVercel': 'Deploying to Vercel…',
   'fileViewer.preparingPublicLink': 'Preparing public link…',
-  'fileViewer.copyDeployLink': 'Copy link',
-  'fileViewer.deployModalTitle': 'Deploy to Vercel',
-  'fileViewer.deployModalSubtitle':
-    'Deploy this HTML artifact as a Vercel Preview using your own account.',
-  'fileViewer.vercelToken': 'Vercel token',
-  'fileViewer.vercelTokenGetLink': 'Get Vercel token',
-  'fileViewer.vercelTokenPlaceholder': 'Paste your Vercel token',
-  'fileViewer.vercelTokenReuseHint':
-    'Saved token will be used. Enter a new token to replace it.',
-  'fileViewer.vercelTokenRequired': 'Enter and save a Vercel token first.',
-  'fileViewer.vercelTeamId': 'Team ID',
-  'fileViewer.vercelTeamSlug': 'Team slug',
   'fileViewer.optional': 'Optional',
-  'fileViewer.vercelPreviewOnly': 'Deploys are Preview-only for now.',
   'fileViewer.savingConfig': 'Saving…',
-  'fileViewer.deployConfigSaveFailed': 'Could not save Vercel settings.',
-  'fileViewer.deployFailed': 'Deploy failed. Check Vercel settings and try again.',
-  'fileViewer.deployResultLabel': 'Deployed URL',
-  'fileViewer.deployLinkPreparingLabel': 'Public link pending',
-  'fileViewer.deployLinkDelayed':
-    'Your site is deployed. Vercel is still preparing the public link.',
-  'fileViewer.deployLinkProtectedLabel': 'Vercel protection enabled',
-  'fileViewer.deployLinkProtected':
-    'Your site deployed, but Vercel is requiring authentication for this preview link. Disable Deployment Protection or use a custom domain.',
   'fileViewer.retryLink': 'Retry now',
 
   'sketch.toolSelect': 'انتخاب (غیرفعال)',
@@ -778,11 +753,6 @@ export const fa: Dict = {
   'pet.codexRefresh': 'بازخوانی',
   'pet.codexAdopt': 'پذیرش',
   'pet.codexAdopting': 'در حال پذیرش…',
-  'pet.communitySync': 'دانلود حیوانات اجتماعی',
-  'pet.communitySyncing': 'در حال دانلود…',
-  'pet.communitySyncTitle': 'همگام‌سازی جدیدترین حیوانات از Codex Pet Share + j20 Hatchery در ~/.codex/pets/.',
-  'pet.communitySyncDone': '{wrote} حیوان جدید همگام شد (مجموع {total}).',
-  'pet.communitySyncFailed': 'خطا در همگام‌سازی: {error}',
   'pet.codexBundled': 'همراه',
   'pet.codexBundledTitle': 'همراه Open Design ارائه می‌شود — نیازی به دانلود نیست.',
 };

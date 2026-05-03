@@ -119,25 +119,3 @@ export interface CodexPetsResponse {
   rootDir: string;
 }
 
-// Body for `POST /api/codex-pets/sync` — triggers the daemon-side port
-// of `scripts/sync-community-pets.ts`. Both fields are optional so the
-// default call (`syncCommunityPets({})`) downloads every catalog and
-// skips pets that already exist on disk.
-export interface SyncCommunityPetsRequest {
-  // Which catalog(s) to download. Defaults to 'all'.
-  source?: 'all' | 'petshare' | 'hatchery';
-  // Re-download pets that already have a folder on disk.
-  force?: boolean;
-}
-
-// Daemon response after a community sync. Matches the script's stdout
-// summary so the web UI can show the same "wrote/skipped/failed" line.
-export interface SyncCommunityPetsResponse {
-  wrote: number;
-  skipped: number;
-  failed: number;
-  total: number;
-  rootDir: string;
-  // Up to ~10 surfaced error messages (the daemon log keeps the rest).
-  errors: string[];
-}

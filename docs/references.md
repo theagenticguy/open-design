@@ -30,7 +30,7 @@ Every external project this spec leans on. Three questions per entry: what is it
   - Sandboxed iframe preview (`<iframe sandbox="allow-scripts">` with vendored React 18 + Babel standalone for JSX).
   - Export pipeline shape (HTML/PDF/PPTX/ZIP/MD).
 - **What we don't:**
-  - **Electron** — we go Next.js web app instead (runs local and deploys to Vercel).
+  - **Electron** — we go Next.js web app instead (runs local).
   - **Bundled agent on `pi-ai`** — we delegate to the user's existing CLI.
   - **Proprietary skill format** (TypeScript modules compiled into the app) — we use Claude Code's `SKILL.md` so third-party skills drop in.
   - **SQLite for artifacts** — plain files + `.jsonl` history, so git tracks it naturally.
@@ -102,7 +102,6 @@ Every external project this spec leans on. Three questions per entry: what is it
 | [Cursor .cursorrules](https://docs.cursor.com/) | Informs how the Cursor Agent adapter injects skill context |
 | [Reveal.js](https://revealjs.com/) / [Marp](https://marp.app/) | Reference for deck HTML navigation patterns |
 | [Shadcn/ui](https://ui.shadcn.com/) | Likely component library for the web UI shell |
-| [Vercel AI SDK](https://sdk.vercel.ai/) | Streaming primitives for the API-fallback adapter |
 | [Puppeteer](https://pptr.dev/) | PDF export engine |
 | [pptxgenjs](https://gitbrent.github.io/PptxGenJS/) | PPTX export engine |
 | [chokidar](https://github.com/paulmillr/chokidar) | Filesystem watching for skill / artifact hot-reload |
@@ -115,7 +114,6 @@ Every external project this spec leans on. Three questions per entry: what is it
 |---|---|---|---|---|---|
 | Open source | ❌ | ✅ | ✅ | ✅ | ✅ |
 | Primary form factor | Web (hosted) | Electron | Web + Go daemon | Tauri | **Next.js web + Node daemon** |
-| Vercel-deployable | ❌ | ❌ | ❌ | ❌ | **✅** |
 | Runs local-only | ❌ | ✅ | ✅ | ✅ | **✅** |
 | Generates design artifacts | ✅ | ✅ | ❌ (general coding) | ❌ | **✅** |
 | Uses existing code agent | — (owns it) | ❌ | ✅ | ✅ | **✅** |
@@ -125,7 +123,7 @@ Every external project this spec leans on. Three questions per entry: what is it
 | Template gallery | ✅ | ✅ (15) | ❌ | ❌ | **✅** |
 | Design-system authoring mode | ❌ | ❌ | ❌ | ❌ | **✅** |
 
-The two empty-column crossings where OD lights up and others don't: **Vercel-deployable + design-system authoring**, and **uses existing code agent + first-class DESIGN.md**. That's the niche.
+The empty-column crossing where OD lights up and others don't: **uses existing code agent + first-class DESIGN.md**. That's the niche.
 
 ---
 

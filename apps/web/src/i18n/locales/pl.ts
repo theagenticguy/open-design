@@ -543,34 +543,9 @@ export const pl: Dict = {
   'fileViewer.templateNameDefault': 'Szablon bez tytułu',
   'fileViewer.templateDescPrompt':
       'Krótki opis (opcjonalnie — co czyni ten szablon użytecznym?)',
-  'fileViewer.deployToVercel': 'Wdróż na Vercel',
-  'fileViewer.redeployToVercel': 'Wdróż ponownie',
-  'fileViewer.deployingToVercel': 'Wdrażanie na Vercel…',
   'fileViewer.preparingPublicLink': 'Przygotowywanie publicznego linku…',
-  'fileViewer.copyDeployLink': 'Kopiuj link',
-  'fileViewer.deployModalTitle': 'Wdróż na Vercel',
-  'fileViewer.deployModalSubtitle':
-      'Wdróż ten artefakt HTML jako podgląd Vercel (Preview) przy użyciu własnego konta.',
-  'fileViewer.vercelToken': 'Token Vercel',
-  'fileViewer.vercelTokenGetLink': 'Pobierz token Vercel',
-  'fileViewer.vercelTokenPlaceholder': 'Wklej swój token Vercel',
-  'fileViewer.vercelTokenReuseHint':
-      'Zapisany token zostanie użyty. Wprowadź nowy, aby go zastąpić.',
-  'fileViewer.vercelTokenRequired': 'Najpierw wprowadź i zapisz token Vercel.',
-  'fileViewer.vercelTeamId': 'ID zespołu',
-  'fileViewer.vercelTeamSlug': 'Slug zespołu',
   'fileViewer.optional': 'Opcjonalnie',
-  'fileViewer.vercelPreviewOnly': 'Wdrożenia są obecnie dostępne tylko jako Podgląd (Preview).',
   'fileViewer.savingConfig': 'Zapisywanie…',
-  'fileViewer.deployConfigSaveFailed': 'Nie udało się zapisać ustawień Vercel.',
-  'fileViewer.deployFailed': 'Wdrożenie nie powiodło się. Sprawdź ustawienia Vercel i spróbuj ponownie.',
-  'fileViewer.deployResultLabel': 'Wdrożony URL',
-  'fileViewer.deployLinkPreparingLabel': 'Oczekiwanie na link publiczny',
-  'fileViewer.deployLinkDelayed':
-      'Strona została wdrożona. Vercel wciąż przygotowuje link publiczny.',
-  'fileViewer.deployLinkProtectedLabel': 'Ochrona Vercel włączona',
-  'fileViewer.deployLinkProtected':
-      'Strona została wdrożona, ale Vercel wymaga uwierzytelnienia dla tego linku podglądu. Wyłącz Deployment Protection lub użyj własnej domeny.',
   'fileViewer.retryLink': 'Ponów teraz',
 
   'questionForm.submit': 'Wyślij',
@@ -777,11 +752,6 @@ export const pl: Dict = {
   'pet.codexRefresh': 'Odśwież',
   'pet.codexAdopt': 'Adoptuj',
   'pet.codexAdopting': 'Adoptuję…',
-  'pet.communitySync': 'Pobierz zwierzaki społeczności',
-  'pet.communitySyncing': 'Pobieranie…',
-  'pet.communitySyncTitle': 'Zsynchronizuj najnowsze zwierzaki z Codex Pet Share + j20 Hatchery do ~/.codex/pets/.',
-  'pet.communitySyncDone': 'Zsynchronizowano {wrote} nowych zwierzaków (łącznie {total}).',
-  'pet.communitySyncFailed': 'Błąd synchronizacji: {error}',
   'pet.codexBundled': 'W zestawie',
   'pet.codexBundledTitle': 'Dostarczany z Open Design — bez pobierania.',
 };

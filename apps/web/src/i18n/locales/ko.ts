@@ -543,34 +543,9 @@ export const ko: Dict = {
   'fileViewer.templateNameDefault': '제목 없는 템플릿',
   'fileViewer.templateDescPrompt':
     '간단한 설명 (선택 사항 — 이 템플릿의 용도나 특징이 무엇인가요?)',
-  'fileViewer.deployToVercel': 'Vercel에 배포',
-  'fileViewer.redeployToVercel': '다시 배포',
-  'fileViewer.deployingToVercel': 'Vercel에 배포 중…',
   'fileViewer.preparingPublicLink': '공개 링크 준비 중…',
-  'fileViewer.copyDeployLink': '링크 복사',
-  'fileViewer.deployModalTitle': 'Vercel에 배포',
-  'fileViewer.deployModalSubtitle':
-    '사용자 개인 계정을 사용하여 이 HTML 결과물을 Vercel Preview로 배포합니다.',
-  'fileViewer.vercelToken': 'Vercel 토큰',
-  'fileViewer.vercelTokenGetLink': 'Vercel 토큰 발급 받기',
-  'fileViewer.vercelTokenPlaceholder': 'Vercel 토큰을 붙여넣으세요',
-  'fileViewer.vercelTokenReuseHint':
-    '저장된 토큰이 사용됩니다. 변경하려면 새 토큰을 입력하세요.',
-  'fileViewer.vercelTokenRequired': '먼저 Vercel 토큰을 입력하고 저장하세요.',
-  'fileViewer.vercelTeamId': '팀 ID (Team ID)',
-  'fileViewer.vercelTeamSlug': '팀 슬러그 (Team slug)',
   'fileViewer.optional': '선택 사항',
-  'fileViewer.vercelPreviewOnly': '현재 배포는 Preview 모드만 지원합니다.',
   'fileViewer.savingConfig': '설정 저장 중…',
-  'fileViewer.deployConfigSaveFailed': 'Vercel 설정을 저장하지 못했습니다.',
-  'fileViewer.deployFailed': '배포 실패. Vercel 설정을 확인하고 다시 시도해 주세요.',
-  'fileViewer.deployResultLabel': '배포된 URL',
-  'fileViewer.deployLinkPreparingLabel': '공개 링크 보류 중',
-  'fileViewer.deployLinkDelayed':
-    '사이트 배포는 완료되었으나, Vercel 측에서 공개 링크를 준비 중입니다.',
-  'fileViewer.deployLinkProtectedLabel': 'Vercel 보호 설정 됨',
-  'fileViewer.deployLinkProtected':
-    '배포는 완료되었지만, Vercel 계정 설정에 의해 이 링크가 보호되어 있습니다. Vercel Deployment Protection을 비활성화하거나 커스텀 도메인을 사용하세요.',
   'fileViewer.retryLink': '지금 다시 시도',
 
   'questionForm.submit': '제출',
@@ -777,11 +752,6 @@ export const ko: Dict = {
   'pet.codexRefresh': '새로고침',
   'pet.codexAdopt': '입양',
   'pet.codexAdopting': '입양 중…',
-  'pet.communitySync': '커뮤니티 펫 다운로드',
-  'pet.communitySyncing': '다운로드 중…',
-  'pet.communitySyncTitle': 'Codex Pet Share + j20 Hatchery 의 최신 펫을 ~/.codex/pets/ 로 동기화합니다.',
-  'pet.communitySyncDone': '신규 펫 {wrote} 마리 동기화됨 (총 {total} 마리).',
-  'pet.communitySyncFailed': '동기화 실패: {error}',
   'pet.codexBundled': '내장',
   'pet.codexBundledTitle': 'Open Design 에 내장 — 다운로드 불필요.',
 };

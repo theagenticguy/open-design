@@ -543,34 +543,9 @@ export const de: Dict = {
   'fileViewer.templateNameDefault': 'Template ohne Titel',
   'fileViewer.templateDescPrompt':
     'Kurze Beschreibung (optional — was macht dieses Template nützlich?)',
-  'fileViewer.deployToVercel': 'Auf Vercel deployen',
-  'fileViewer.redeployToVercel': 'Erneut deployen',
-  'fileViewer.deployingToVercel': 'Deployment auf Vercel läuft…',
   'fileViewer.preparingPublicLink': 'Öffentlicher Link wird vorbereitet…',
-  'fileViewer.copyDeployLink': 'Link kopieren',
-  'fileViewer.deployModalTitle': 'Auf Vercel deployen',
-  'fileViewer.deployModalSubtitle':
-    'Deployen Sie dieses HTML-Artifact als Vercel Preview mit Ihrem eigenen Konto.',
-  'fileViewer.vercelToken': 'Vercel Token',
-  'fileViewer.vercelTokenGetLink': 'Vercel Token abrufen',
-  'fileViewer.vercelTokenPlaceholder': 'Vercel Token einfügen',
-  'fileViewer.vercelTokenReuseHint':
-    'Gespeicherter Token wird verwendet. Geben Sie einen neuen Token ein, um ihn zu ersetzen.',
-  'fileViewer.vercelTokenRequired': 'Geben und speichern Sie zuerst einen Vercel Token.',
-  'fileViewer.vercelTeamId': 'Team-ID',
-  'fileViewer.vercelTeamSlug': 'Team-Slug',
   'fileViewer.optional': 'Optional',
-  'fileViewer.vercelPreviewOnly': 'Deployments sind vorerst nur Previews.',
   'fileViewer.savingConfig': 'Speichern…',
-  'fileViewer.deployConfigSaveFailed': 'Vercel-Einstellungen konnten nicht gespeichert werden.',
-  'fileViewer.deployFailed': 'Deployment fehlgeschlagen. Prüfen Sie die Vercel-Einstellungen und versuchen Sie es erneut.',
-  'fileViewer.deployResultLabel': 'Bereitgestellte URL',
-  'fileViewer.deployLinkPreparingLabel': 'Öffentlicher Link ausstehend',
-  'fileViewer.deployLinkDelayed':
-    'Ihre Site ist deployed. Vercel bereitet den öffentlichen Link noch vor.',
-  'fileViewer.deployLinkProtectedLabel': 'Vercel Protection aktiviert',
-  'fileViewer.deployLinkProtected':
-    'Ihre Site wurde deployed, aber Vercel verlangt Authentifizierung für diesen Preview-Link. Deaktivieren Sie Deployment Protection oder verwenden Sie eine Custom Domain.',
   'fileViewer.retryLink': 'Jetzt erneut versuchen',
 
   'questionForm.submit': 'Absenden',
@@ -777,11 +752,6 @@ export const de: Dict = {
   'pet.codexRefresh': 'Aktualisieren',
   'pet.codexAdopt': 'Adoptieren',
   'pet.codexAdopting': 'Adoptiere…',
-  'pet.communitySync': 'Community-Pets herunterladen',
-  'pet.communitySyncing': 'Lade…',
-  'pet.communitySyncTitle': 'Synchronisiere die neuesten Pets aus Codex Pet Share + j20 Hatchery nach ~/.codex/pets/.',
-  'pet.communitySyncDone': '{wrote} neue Pets synchronisiert ({total} insgesamt).',
-  'pet.communitySyncFailed': 'Sync fehlgeschlagen: {error}',
   'pet.codexBundled': 'Mitgeliefert',
   'pet.codexBundledTitle': 'Wird mit Open Design ausgeliefert — kein Download nötig.',
 };

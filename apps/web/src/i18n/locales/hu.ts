@@ -543,34 +543,9 @@ export const hu: Dict = {
   'fileViewer.templateNameDefault': 'Cím nélküli sablon',
   'fileViewer.templateDescPrompt':
     'Rövid leírás (opcionális — mitől hasznos ez a sablon?)',
-  'fileViewer.deployToVercel': 'Telepítés Vercelre',
-  'fileViewer.redeployToVercel': 'Újratelepítés',
-  'fileViewer.deployingToVercel': 'Telepítés Vercelre…',
   'fileViewer.preparingPublicLink': 'Nyilvános link előkészítése…',
-  'fileViewer.copyDeployLink': 'Link másolása',
-  'fileViewer.deployModalTitle': 'Telepítés Vercelre',
-  'fileViewer.deployModalSubtitle':
-    'Telepítsd ezt a HTML-artefaktumot Vercel Preview-ként a saját fiókodból.',
-  'fileViewer.vercelToken': 'Vercel token',
-  'fileViewer.vercelTokenGetLink': 'Vercel token kérése',
-  'fileViewer.vercelTokenPlaceholder': 'Illeszd be a Vercel tokenedet',
-  'fileViewer.vercelTokenReuseHint':
-    'A mentett tokent használjuk. Adj meg újat a cseréhez.',
-  'fileViewer.vercelTokenRequired': 'Előbb adj meg és ments el egy Vercel tokent.',
-  'fileViewer.vercelTeamId': 'Team ID',
-  'fileViewer.vercelTeamSlug': 'Team slug',
   'fileViewer.optional': 'Opcionális',
-  'fileViewer.vercelPreviewOnly': 'A telepítések egyelőre csak Preview-k.',
   'fileViewer.savingConfig': 'Mentés…',
-  'fileViewer.deployConfigSaveFailed': 'A Vercel beállítások nem menthetők.',
-  'fileViewer.deployFailed': 'A telepítés sikertelen. Ellenőrizd a Vercel beállításokat, és próbáld újra.',
-  'fileViewer.deployResultLabel': 'Telepített URL',
-  'fileViewer.deployLinkPreparingLabel': 'Nyilvános link várólistán',
-  'fileViewer.deployLinkDelayed':
-    'Az oldal telepítve. A Vercel még készíti a nyilvános linket.',
-  'fileViewer.deployLinkProtectedLabel': 'Vercel-védelem aktív',
-  'fileViewer.deployLinkProtected':
-    'Az oldal telepítve, de a Vercel hitelesítést kér ehhez az előnézeti linkhez. Kapcsold ki a Deployment Protection-t, vagy használj egyedi domaint.',
   'fileViewer.retryLink': 'Újra most',
 
   'questionForm.submit': 'Beküldés',
@@ -786,12 +761,6 @@ export const hu: Dict = {
   'pet.codexRefresh': 'Frissítés',
   'pet.codexAdopt': 'Befogadás',
   'pet.codexAdopting': 'Befogadás folyamatban…',
-  'pet.communitySync': 'Közösségi háziállatok letöltése',
-  'pet.communitySyncing': 'Letöltés…',
-  'pet.communitySyncTitle':
-    'Frissítsd a Codex Pet Share és j20 Hatchery legutóbbi háziállatait a ~/.codex/pets/ mappába.',
-  'pet.communitySyncDone': '{wrote} új háziállat szinkronizálva (összesen {total}).',
-  'pet.communitySyncFailed': 'A szinkronizálás sikertelen: {error}',
   'pet.codexBundled': 'Beépített',
   'pet.codexBundledTitle': 'Az Open Designgal érkezik — letöltés nem szükséges.',
 };

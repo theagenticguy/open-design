@@ -21,7 +21,6 @@ import {
   listCodexPets,
   readCodexPetSpritesheet,
 } from './codex-pets.js';
-import { syncCommunityPets } from './community-pets-sync.js';
 import { listDesignSystems, readDesignSystem } from './design-systems.js';
 import { attachAcpSession } from './acp.js';
 import { attachPiRpcSession } from './pi-rpc.js';
@@ -66,8 +65,6 @@ import {
   deleteProject as dbDeleteProject,
   deleteTemplate,
   getConversation,
-  getDeployment,
-  getDeploymentById,
   getProject,
   getTemplate,
   insertConversation,
@@ -75,7 +72,6 @@ import {
   insertTemplate,
   listProjectsAwaitingInput,
   listConversations,
-  listDeployments,
   listLatestProjectRunStatuses,
   listMessages,
   listPreviewComments,
@@ -87,20 +83,9 @@ import {
   updateConversation,
   updatePreviewCommentStatus,
   updateProject,
-  upsertDeployment,
   upsertMessage,
   upsertPreviewComment,
 } from './db.js';
-import {
-  buildDeployFileSet,
-  checkDeploymentUrl,
-  DeployError,
-  deployToVercel,
-  publicDeployConfig,
-  readVercelConfig,
-  VERCEL_PROVIDER_ID,
-  writeVercelConfig,
-} from './deploy.js';
 
 /** @typedef {import('@open-design/contracts').ApiErrorCode} ApiErrorCode */
 /** @typedef {import('@open-design/contracts').ApiError} ApiError */
@@ -1068,30 +1053,6 @@ export async function startServer({ port = 7456, returnServer = false } = {}) {
     }
   });
 
-  // One-click community sync. Hits the Codex Pet Share + j20 Hatchery
-  // catalogs and drops every pet into `${CODEX_HOME:-$HOME/.codex}/pets/`
-  // so `GET /api/codex-pets` (and the web Pet settings) pick them up
-  // immediately. The body is intentionally tiny — we keep the heavier
-  // tuning knobs (`--limit`, `--concurrency`) on the CLI script and
-  // only surface `force` + `source` here.
-  app.post('/api/codex-pets/sync', async (req, res) => {
-    try {
-      const body = req.body && typeof req.body === 'object' ? req.body : {};
-      const sourceRaw = typeof body.source === 'string' ? body.source : 'all';
-      const source =
-        sourceRaw === 'petshare' || sourceRaw === 'hatchery'
-          ? sourceRaw
-          : 'all';
-      const result = await syncCommunityPets({
-        source,
-        force: Boolean(body.force),
-      });
-      res.json(result);
-    } catch (err) {
-      res.status(500).json({ error: String((err && err.message) || err) });
-    }
-  });
-
   app.get('/api/codex-pets/:id/spritesheet', async (req, res) => {
     try {
       const sheet = await readCodexPetSpritesheet(req.params.id, {
@@ -1317,104 +1278,6 @@ export async function startServer({ port = 7456, returnServer = false } = {}) {
   });
 
   app.use('/artifacts', express.static(ARTIFACTS_DIR));
-
-  // ---- Deploy --------------------------------------------------------------
-
-  app.get('/api/deploy/config', async (_req, res) => {
-    try {
-      /** @type {import('@open-design/contracts').DeployConfigResponse} */
-      const body = publicDeployConfig(await readVercelConfig());
-      res.json(body);
-    } catch (err) {
-      sendApiError(res, 500, 'INTERNAL_ERROR', String(err?.message || err));
-    }
-  });
-
-  app.put('/api/deploy/config', async (req, res) => {
-    try {
-      /** @type {import('@open-design/contracts').DeployConfigResponse} */
-      const body = await writeVercelConfig(req.body || {});
-      res.json(body);
-    } catch (err) {
-      sendApiError(res, 400, 'BAD_REQUEST', String(err?.message || err));
-    }
-  });
-
-  app.get('/api/projects/:id/deployments', (req, res) => {
-    try {
-      /** @type {import('@open-design/contracts').ProjectDeploymentsResponse} */
-      const body = { deployments: listDeployments(db, req.params.id) };
-      res.json(body);
-    } catch (err) {
-      sendApiError(res, 400, 'BAD_REQUEST', String(err?.message || err));
-    }
-  });
-
-  app.post('/api/projects/:id/deploy', async (req, res) => {
-    try {
-      const { fileName, providerId = VERCEL_PROVIDER_ID } = req.body || {};
-      if (providerId !== VERCEL_PROVIDER_ID) {
-        return sendApiError(res, 400, 'BAD_REQUEST', 'unsupported deploy provider');
-      }
-      if (typeof fileName !== 'string' || !fileName.trim()) {
-        return sendApiError(res, 400, 'BAD_REQUEST', 'fileName required');
-      }
-
-      const prior = getDeployment(db, req.params.id, fileName, providerId);
-      const files = await buildDeployFileSet(PROJECTS_DIR, req.params.id, fileName);
-      const result = await deployToVercel({
-        config: await readVercelConfig(),
-        files,
-        projectId: req.params.id,
-      });
-      const now = Date.now();
-      /** @type {import('@open-design/contracts').DeployProjectFileResponse} */
-      const body = upsertDeployment(db, {
-        id: prior?.id ?? randomUUID(),
-        projectId: req.params.id,
-        fileName,
-        providerId,
-        url: result.url,
-        deploymentId: result.deploymentId,
-        deploymentCount: (prior?.deploymentCount ?? 0) + 1,
-        target: 'preview',
-        status: result.status,
-        statusMessage: result.statusMessage,
-        reachableAt: result.reachableAt,
-        createdAt: prior?.createdAt ?? now,
-        updatedAt: now,
-      });
-      res.json(body);
-    } catch (err) {
-      const status = err instanceof DeployError ? err.status : 400;
-      const init = err instanceof DeployError && err.details ? { details: err.details } : {};
-      sendApiError(res, status, status === 404 ? 'FILE_NOT_FOUND' : 'BAD_REQUEST', String(err?.message || err), init);
-    }
-  });
-
-  app.post('/api/projects/:id/deployments/:deploymentId/check-link', async (req, res) => {
-    try {
-      const existing = getDeploymentById(db, req.params.id, req.params.deploymentId);
-      if (!existing) {
-        return sendApiError(res, 404, 'FILE_NOT_FOUND', 'deployment not found');
-      }
-      const result = await checkDeploymentUrl(existing.url);
-      const now = Date.now();
-      /** @type {import('@open-design/contracts').CheckDeploymentLinkResponse} */
-      const body = upsertDeployment(db, {
-        ...existing,
-        status: result.reachable ? 'ready' : (result.status || 'link-delayed'),
-        statusMessage: result.reachable
-          ? 'Public link is ready.'
-          : (result.statusMessage || 'Vercel is still preparing the public link.'),
-        reachableAt: result.reachable ? now : existing.reachableAt,
-        updatedAt: now,
-      });
-      res.json(body);
-    } catch (err) {
-      sendApiError(res, 400, 'BAD_REQUEST', String(err?.message || err));
-    }
-  });
 
   // Shared device frames (iPhone, Android, iPad, MacBook, browser chrome).
   // Skills can compose multi-screen / multi-device layouts by pointing at

@@ -7,7 +7,6 @@ import { DEFAULT_PET } from '../../state/config';
 import {
   codexPetSpritesheetUrl,
   fetchCodexPets,
-  syncCommunityPets,
 } from '../../providers/registry';
 import {
   CUSTOM_PET_ID,
@@ -81,18 +80,6 @@ export function PetSettings({ cfg, setCfg }: Props) {
   const [codexPetsLoading, setCodexPetsLoading] = useState(false);
   const [codexPetsRoot, setCodexPetsRoot] = useState<string>('');
   const [codexAdopting, setCodexAdopting] = useState<string | null>(null);
-  // Community catalog sync — calls the daemon-side port of the
-  // `sync-community-pets` script which fetches the latest pets from
-  // Codex Pet Share + j20 Hatchery into `~/.codex/pets/`. We surface
-  // the run summary (or error) inline below the head row so users get
-  // direct feedback after the long-running download.
-  const [communitySyncing, setCommunitySyncing] = useState(false);
-  const [communitySyncStatus, setCommunitySyncStatus] = useState<
-    | { kind: 'done'; wrote: number; total: number }
-    | { kind: 'error'; error: string }
-    | null
-  >(null);
-
   // Tab routing — split the panel into three exclusive surfaces
   // (built-in / custom / community) so each "where do my pets come
   // from" choice has its own dedicated space and the user feels like
@@ -129,33 +116,6 @@ export function PetSettings({ cfg, setCfg }: Props) {
       setCodexPetsLoading(false);
     }
   }, []);
-
-  const handleCommunitySync = useCallback(async () => {
-    setCommunitySyncing(true);
-    setCommunitySyncStatus(null);
-    try {
-      const result = await syncCommunityPets();
-      if (result.error) {
-        setCommunitySyncStatus({ kind: 'error', error: result.error });
-      } else {
-        setCommunitySyncStatus({
-          kind: 'done',
-          wrote: result.wrote,
-          total: result.total,
-        });
-      }
-      // Pull the freshly-synced pets into the grid even on a partial
-      // failure — the daemon writes whatever succeeded before erroring.
-      await refreshCodexPets();
-    } catch (err) {
-      setCommunitySyncStatus({
-        kind: 'error',
-        error: err instanceof Error ? err.message : 'Sync request failed',
-      });
-    } finally {
-      setCommunitySyncing(false);
-    }
-  }, [refreshCodexPets]);
 
   useEffect(() => {
     void refreshCodexPets();
@@ -870,23 +830,6 @@ export function PetSettings({ cfg, setCfg }: Props) {
               <div className="pet-codex-head-actions">
                 <button
                   type="button"
-                  className="seg-btn small"
-                  onClick={() => void handleCommunitySync()}
-                  disabled={communitySyncing}
-                  title={t('pet.communitySyncTitle')}
-                >
-                  <Icon
-                    name={communitySyncing ? 'spinner' : 'download'}
-                    size={12}
-                  />
-                  <span>
-                    {communitySyncing
-                      ? t('pet.communitySyncing')
-                      : t('pet.communitySync')}
-                  </span>
-                </button>
-                <button
-                  type="button"
                   className="seg-btn small ghost"
                   onClick={() => void refreshCodexPets()}
                   disabled={codexPetsLoading}
@@ -900,21 +843,6 @@ export function PetSettings({ cfg, setCfg }: Props) {
                 </button>
               </div>
             </div>
-            {communitySyncStatus ? (
-              <p
-                className={`hint pet-codex-sync-status${communitySyncStatus.kind === 'error' ? ' error' : ''}`}
-                role="status"
-              >
-                {communitySyncStatus.kind === 'done'
-                  ? t('pet.communitySyncDone', {
-                      wrote: communitySyncStatus.wrote,
-                      total: communitySyncStatus.total,
-                    })
-                  : t('pet.communitySyncFailed', {
-                      error: communitySyncStatus.error,
-                    })}
-              </p>
-            ) : null}
             {communityPets.length === 0 ? (
               <p className="hint pet-codex-empty">
                 {codexPetsLoading ? t('pet.codexLoading') : t('pet.codexEmpty')}

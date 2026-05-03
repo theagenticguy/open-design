@@ -542,34 +542,9 @@ export const tr: Dict = {
   'fileViewer.templateNameDefault': 'Başlıksız şablon',
   'fileViewer.templateDescPrompt':
     'Kısa açıklama (opsiyonel — bu şablonu kullanışlı yapan ne?)',
-  'fileViewer.deployToVercel': 'Vercel’e yayınla',
-  'fileViewer.redeployToVercel': 'Yeniden yayınla',
-  'fileViewer.deployingToVercel': 'Vercel’e yayınlanıyor…',
   'fileViewer.preparingPublicLink': 'Herkese açık bağlantı hazırlanıyor…',
-  'fileViewer.copyDeployLink': 'Bağlantıyı kopyala',
-  'fileViewer.deployModalTitle': 'Vercel’e yayınla',
-  'fileViewer.deployModalSubtitle':
-    'Kendi hesabınızı kullanarak bu HTML eserini bir Vercel Önizlemesi olarak yayınlayın.',
-  'fileViewer.vercelToken': 'Vercel tokeni',
-  'fileViewer.vercelTokenGetLink': 'Vercel tokenini al',
-  'fileViewer.vercelTokenPlaceholder': 'Vercel tokeninizi yapıştırın',
-  'fileViewer.vercelTokenReuseHint':
-    'Kaydedilmiş token kullanılacak. Değiştirmek için yeni bir token girin.',
-  'fileViewer.vercelTokenRequired': 'Önce bir Vercel tokeni girin ve kaydedin.',
-  'fileViewer.vercelTeamId': 'Takım ID',
-  'fileViewer.vercelTeamSlug': 'Takım slug’ı',
   'fileViewer.optional': 'Opsiyonel',
-  'fileViewer.vercelPreviewOnly': 'Yayınlanmış içerikler şimdilik yalnızca önizlenebilir.',
   'fileViewer.savingConfig': 'Kaydediliyor…',
-  'fileViewer.deployConfigSaveFailed': 'Vercel ayarları kaydedilemedi.',
-  'fileViewer.deployFailed': 'Yayınlama başarısız oldu. Vercel ayarlarınızı kontrol edin ve yeniden deneyin.',
-  'fileViewer.deployResultLabel': 'Yayınlanmış URL',
-  'fileViewer.deployLinkPreparingLabel': 'Herkese açık link bekleniyor',
-  'fileViewer.deployLinkDelayed':
-    'Siteniz yayınlandı. Vercel hala herkese açık linki hazırlıyor.',
-  'fileViewer.deployLinkProtectedLabel': 'Vercel koruması açıldı',
-  'fileViewer.deployLinkProtected':
-    'Siteniz yayınlandı, Ancak Vercel bu linki önizlemek için doğrulama gerektiriyor. Yayınlama Korumasını devre dışı bırakın veya özel bir domain kullanın.',
   'fileViewer.retryLink': 'Şimdi yeniden dene',
 
   'questionForm.submit': 'Gönder',
@@ -776,11 +751,6 @@ export const tr: Dict = {
   'pet.codexRefresh': 'Yenile',
   'pet.codexAdopt': 'Evlat edin',
   'pet.codexAdopting': 'Evlat ediniyor…',
-  'pet.communitySync': 'Topluluk petlerini indir',
-  'pet.communitySyncing': 'İndiriliyor…',
-  'pet.communitySyncTitle': 'Codex Pet Share + j20 Hatchery üzerindeki en yeni petleri ~/.codex/pets/ altına eşitle.',
-  'pet.communitySyncDone': '{wrote} yeni pet eşitlendi (toplam {total}).',
-  'pet.communitySyncFailed': 'Eşitleme başarısız: {error}',
   'pet.codexBundled': 'Yerleşik',
   'pet.codexBundledTitle': 'Open Design ile birlikte gelir — indirme gerekmez.',
 };

@@ -34,12 +34,12 @@ const CATEGORY = {
   // Developer Tools
   cursor: 'Developer Tools', expo: 'Developer Tools', lovable: 'Developer Tools',
   raycast: 'Developer Tools', superhuman: 'Developer Tools',
-  vercel: 'Developer Tools', warp: 'Developer Tools',
+  warp: 'Developer Tools',
   // Backend & Data
   clickhouse: 'Backend & Data', composio: 'Backend & Data',
   hashicorp: 'Backend & Data', mongodb: 'Backend & Data',
   posthog: 'Backend & Data', sanity: 'Backend & Data',
-  sentry: 'Backend & Data', supabase: 'Backend & Data',
+  sentry: 'Backend & Data',
   // Productivity & SaaS
   cal: 'Productivity & SaaS', intercom: 'Productivity & SaaS',
   'linear.app': 'Productivity & SaaS', mintlify: 'Productivity & SaaS',

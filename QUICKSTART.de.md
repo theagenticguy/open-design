@@ -201,7 +201,7 @@ open-design/
 │   ├── default/               # Neutral Modern (starter)
 │   ├── warm-editorial/        # Warm Editorial (starter)
 │   ├── README.md              # catalog overview
-│   └── …69 product systems    # claude · cohere · linear-app · vercel · stripe · airbnb …
+│   └── …68 product systems    # claude · cohere · linear-app · stripe · airbnb …
 ├── scripts/sync-design-systems.ts    # re-import from upstream getdesign tarball
 ├── docs/                      # product vision + spec
 ├── .od/                       # runtime data (gitignored, auto-created)

@@ -16,7 +16,7 @@ will read it as part of its system prompt.
 - **57 design skills**, sourced from
   [`bergside/awesome-design-skills`](https://github.com/bergside/awesome-design-skills)
   and added directly as normalized 9-section `DESIGN.md` files.
-- **70 product systems**, imported from
+- **68 product systems**, imported from
   [`VoltAgent/awesome-design-md`](https://github.com/VoltAgent/awesome-design-md)
   (the [`getdesign@latest`](https://www.npmjs.com/package/getdesign) npm
   package, MIT-licensed). One folder per brand:
@@ -24,9 +24,9 @@ will read it as part of its system prompt.
   | Category | Systems |
   |---|---|
   | AI & LLM | claude · cohere · elevenlabs · minimax · mistral-ai · ollama · opencode-ai · replicate · runwayml · together-ai · voltagent · x-ai |
-  | Developer Tools | cursor · expo · lovable · raycast · superhuman · vercel · warp |
+  | Developer Tools | cursor · expo · lovable · raycast · superhuman · warp |
   | Productivity & SaaS | cal · intercom · linear-app · mintlify · notion · resend · zapier |
-  | Backend & Data | clickhouse · composio · hashicorp · mongodb · posthog · sanity · sentry · supabase |
+  | Backend & Data | clickhouse · composio · hashicorp · mongodb · posthog · sanity · sentry |
   | Design & Creative | airtable · clay · figma · framer · miro · webflow |
   | Fintech & Crypto | binance · coinbase · kraken · mastercard · revolut · stripe · wise |
   | E-Commerce & Retail | airbnb · meta · nike · shopify · starbucks |
@@ -63,7 +63,7 @@ any new label and it lands at the bottom of the dropdown.
 
 ## Refreshing the bundled set
 
-The 70 product systems are pulled from the upstream npm package. To re-sync
+The 68 product systems are pulled from the upstream npm package. To re-sync
 to the latest hashes:
 
 ```bash
@@ -77,7 +77,7 @@ For now, the original importer lives at the top of the
 
 ## Attribution
 
-The 70 product systems are sourced from
+The 68 product systems are sourced from
 [`VoltAgent/awesome-design-md`](https://github.com/VoltAgent/awesome-design-md)
 (MIT, © VoltAgent contributors). They are aesthetic *inspirations* — none
 of them are official assets of the brands they reference.

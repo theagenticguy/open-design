@@ -244,14 +244,12 @@ const DE_DESIGN_SYSTEM_SUMMARIES: Record<string, string> = {
   starbucks:
     'Globale Kaffee-Retail-Marke. Vierstufiges grünes System, warme Cream-Leinwand, Full-Pill-Buttons.',
   stripe: 'Payment-Infrastruktur. Signatur-violette Verläufe, Weight-300-Eleganz.',
-  supabase: 'Open-Source-Firebase-Alternative. Dunkles Smaragd-Theme, code-first.',
   superhuman: 'Schneller E-Mail-Client. Premium-dunkle UI, keyboard-first, violetter Glow.',
   tesla: 'Elektrisches Automobil. Radikale Reduktion, Full-Viewport-Fotografie, nahezu keine UI.',
   theverge:
     'Tech-Editorial-Medium. Acid-Mint- und Ultraviolett-Akzente, Manuka-Display, Rave-Flyer-Story-Tiles.',
   'together-ai': 'Open-Source-AI-Infrastruktur. Technisch, blueprint-artiges Design.',
   uber: 'Mobilitätsplattform. Kräftiges Schwarz-Weiß, enge Type, urbane Energie.',
-  vercel: 'Frontend-Deployment. Schwarz-Weiß-Präzision, Geist Font.',
   vodafone: 'Globale Telekommarke. Monumentale Großbuchstaben-Display-Type, Vodafone-Red-Kapitelbänder.',
   voltagent: 'AI-Agent-Framework. Void-schwarze Leinwand, Smaragdakzent, terminal-nativ.',
   'warm-editorial':

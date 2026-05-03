@@ -543,34 +543,9 @@ export const en: Dict = {
   'fileViewer.templateNameDefault': 'Untitled template',
   'fileViewer.templateDescPrompt':
     'Short description (optional — what makes this template useful?)',
-  'fileViewer.deployToVercel': 'Deploy to Vercel',
-  'fileViewer.redeployToVercel': 'Redeploy',
-  'fileViewer.deployingToVercel': 'Deploying to Vercel…',
   'fileViewer.preparingPublicLink': 'Preparing public link…',
-  'fileViewer.copyDeployLink': 'Copy link',
-  'fileViewer.deployModalTitle': 'Deploy to Vercel',
-  'fileViewer.deployModalSubtitle':
-    'Deploy this HTML artifact as a Vercel Preview using your own account.',
-  'fileViewer.vercelToken': 'Vercel token',
-  'fileViewer.vercelTokenGetLink': 'Get Vercel token',
-  'fileViewer.vercelTokenPlaceholder': 'Paste your Vercel token',
-  'fileViewer.vercelTokenReuseHint':
-    'Saved token will be used. Enter a new token to replace it.',
-  'fileViewer.vercelTokenRequired': 'Enter and save a Vercel token first.',
-  'fileViewer.vercelTeamId': 'Team ID',
-  'fileViewer.vercelTeamSlug': 'Team slug',
   'fileViewer.optional': 'Optional',
-  'fileViewer.vercelPreviewOnly': 'Deploys are Preview-only for now.',
   'fileViewer.savingConfig': 'Saving…',
-  'fileViewer.deployConfigSaveFailed': 'Could not save Vercel settings.',
-  'fileViewer.deployFailed': 'Deploy failed. Check Vercel settings and try again.',
-  'fileViewer.deployResultLabel': 'Deployed URL',
-  'fileViewer.deployLinkPreparingLabel': 'Public link pending',
-  'fileViewer.deployLinkDelayed':
-    'Your site is deployed. Vercel is still preparing the public link.',
-  'fileViewer.deployLinkProtectedLabel': 'Vercel protection enabled',
-  'fileViewer.deployLinkProtected':
-    'Your site deployed, but Vercel is requiring authentication for this preview link. Disable Deployment Protection or use a custom domain.',
   'fileViewer.retryLink': 'Retry now',
 
   'questionForm.submit': 'Submit',
@@ -777,11 +752,6 @@ export const en: Dict = {
   'pet.codexRefresh': 'Refresh',
   'pet.codexAdopt': 'Adopt',
   'pet.codexAdopting': 'Adopting…',
-  'pet.communitySync': 'Download community pets',
-  'pet.communitySyncing': 'Downloading…',
-  'pet.communitySyncTitle': 'Sync the latest pets from Codex Pet Share + j20 Hatchery into ~/.codex/pets/.',
-  'pet.communitySyncDone': 'Synced {wrote} new pets ({total} total).',
-  'pet.communitySyncFailed': 'Sync failed: {error}',
   'pet.codexBundled': 'Bundled',
   'pet.codexBundledTitle': 'Ships with Open Design — no download needed.',
 };

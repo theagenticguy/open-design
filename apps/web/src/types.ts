@@ -7,12 +7,9 @@ import type {
   ChatCommentAttachment,
   ChatMessage,
   Conversation,
-  DeployConfigResponse,
-  DeployProjectFileResponse,
   DesignSystemDetail,
   DesignSystemSummary,
   MediaAspect,
-  ProjectDeploymentsResponse,
   PersistedAgentEvent,
   Project,
   PreviewComment,
@@ -27,11 +24,8 @@ import type {
   ProjectTemplate,
   CodexPetSummary,
   CodexPetsResponse,
-  SyncCommunityPetsRequest,
-  SyncCommunityPetsResponse,
   SkillDetail,
   SkillSummary,
-  UpdateDeployConfigRequest,
 } from '@open-design/contracts';
 
 export type ExecMode = 'daemon' | 'api';
@@ -218,12 +212,9 @@ export type {
   AppVersionResponse,
   AudioKind,
   Conversation,
-  DeployConfigResponse,
-  DeployProjectFileResponse,
   DesignSystemDetail,
   DesignSystemSummary,
   MediaAspect,
-  ProjectDeploymentsResponse,
   Project,
   PreviewComment,
   PreviewCommentStatus,
@@ -237,11 +228,8 @@ export type {
   ProjectTemplate,
   CodexPetSummary,
   CodexPetsResponse,
-  SyncCommunityPetsRequest,
-  SyncCommunityPetsResponse,
   SkillDetail,
   SkillSummary,
-  UpdateDeployConfigRequest,
 };
 
 export interface OpenTabsState {

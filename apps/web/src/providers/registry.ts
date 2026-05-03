@@ -5,22 +5,16 @@ import type {
   ChatAttachment,
   CodexPetSummary,
   CodexPetsResponse,
-  SyncCommunityPetsRequest,
-  SyncCommunityPetsResponse,
   PreviewComment,
   PreviewCommentStatus,
   PreviewCommentUpsertRequest,
-  DeployConfigResponse,
-  DeployProjectFileResponse,
   DesignSystemDetail,
   DesignSystemSummary,
-  ProjectDeploymentsResponse,
   PromptTemplateDetail,
   PromptTemplateSummary,
   ProjectFile,
   SkillDetail,
   SkillSummary,
-  UpdateDeployConfigRequest,
 } from '../types';
 import type { ArtifactManifest } from '../artifacts/types';
 
@@ -58,47 +52,6 @@ export async function fetchCodexPets(): Promise<CodexPetsResponse> {
     return (await resp.json()) as CodexPetsResponse;
   } catch {
     return { pets: [], rootDir: '' };
-  }
-}
-
-// One-click trigger for the daemon-side port of `sync-community-pets`.
-// Always resolves with a summary (even when the daemon errored) so the
-// caller can render a status line without having to wrap in try/catch
-// on every keystroke.
-export async function syncCommunityPets(
-  input?: SyncCommunityPetsRequest,
-): Promise<SyncCommunityPetsResponse & { error?: string }> {
-  try {
-    const resp = await fetch('/api/codex-pets/sync', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(input ?? {}),
-    });
-    if (!resp.ok) {
-      const payload = (await resp.json().catch(() => null)) as
-        | { error?: string }
-        | null;
-      return {
-        wrote: 0,
-        skipped: 0,
-        failed: 0,
-        total: 0,
-        rootDir: '',
-        errors: [],
-        error: payload?.error ?? `Sync failed (${resp.status})`,
-      };
-    }
-    return (await resp.json()) as SyncCommunityPetsResponse;
-  } catch (err) {
-    return {
-      wrote: 0,
-      skipped: 0,
-      failed: 0,
-      total: 0,
-      rootDir: '',
-      errors: [],
-      error: err instanceof Error ? err.message : 'Sync request failed',
-    };
   }
 }
 
@@ -207,80 +160,6 @@ export async function fetchSkillExample(id: string): Promise<string | null> {
   } catch {
     return null;
   }
-}
-
-export async function fetchDeployConfig(): Promise<DeployConfigResponse | null> {
-  try {
-    const resp = await fetch('/api/deploy/config');
-    if (!resp.ok) return null;
-    return (await resp.json()) as DeployConfigResponse;
-  } catch {
-    return null;
-  }
-}
-
-export async function updateDeployConfig(
-  input: UpdateDeployConfigRequest,
-): Promise<DeployConfigResponse | null> {
-  try {
-    const resp = await fetch('/api/deploy/config', {
-      method: 'PUT',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(input),
-    });
-    if (!resp.ok) return null;
-    return (await resp.json()) as DeployConfigResponse;
-  } catch {
-    return null;
-  }
-}
-
-export async function fetchProjectDeployments(
-  projectId: string,
-): Promise<ProjectDeploymentsResponse['deployments']> {
-  try {
-    const resp = await fetch(`/api/projects/${encodeURIComponent(projectId)}/deployments`);
-    if (!resp.ok) return [];
-    const json = (await resp.json()) as ProjectDeploymentsResponse;
-    return json.deployments ?? [];
-  } catch {
-    return [];
-  }
-}
-
-export async function deployProjectFile(
-  projectId: string,
-  fileName: string,
-): Promise<DeployProjectFileResponse> {
-  const resp = await fetch(`/api/projects/${encodeURIComponent(projectId)}/deploy`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ fileName, providerId: 'vercel-self' }),
-  });
-  if (!resp.ok) {
-    const payload = (await resp.json().catch(() => null)) as
-      | { error?: { message?: string }; message?: string }
-      | null;
-    throw new Error(payload?.error?.message || payload?.message || `Deploy failed (${resp.status})`);
-  }
-  return (await resp.json()) as DeployProjectFileResponse;
-}
-
-export async function checkDeploymentLink(
-  projectId: string,
-  deploymentId: string,
-): Promise<DeployProjectFileResponse> {
-  const resp = await fetch(
-    `/api/projects/${encodeURIComponent(projectId)}/deployments/${encodeURIComponent(deploymentId)}/check-link`,
-    { method: 'POST' },
-  );
-  if (!resp.ok) {
-    const payload = (await resp.json().catch(() => null)) as
-      | { error?: { message?: string }; message?: string }
-      | null;
-    throw new Error(payload?.error?.message || payload?.message || `Link check failed (${resp.status})`);
-  }
-  return (await resp.json()) as DeployProjectFileResponse;
 }
 
 // Project files — all paths are scoped under .od/projects/<id>/ on disk.

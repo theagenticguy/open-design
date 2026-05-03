@@ -270,7 +270,6 @@ node --experimental-strip-types scripts/sync-litellm-models.ts
 
 - **Vendor 一个模型运行时。** OD 整个赌注就是「你已有的 CLI 就够了」。我们不带 `pi-ai`、不带 OpenAI key、不带模型加载器。
 - **未经讨论不要把前端重写到别的栈。** Next.js 16 App Router + React 18 + TS 是当前底线。不要随手改成 Astro / Solid / Svelte 或其他框架。
-- **把 daemon 换成 serverless function。** Daemon 的存在意义就是拥有真实的 `cwd` 和 spawn 真实的 CLI。SPA 部署 Vercel 没问题，daemon 仍然是 daemon。
 - **加 telemetry / 分析 / phone-home。** OD 是 local-first。唯一的对外请求是用户明确配置的 provider。
 - **打包二进制** 而没有附 license 文件和原作者归属。
 

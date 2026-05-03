@@ -542,34 +542,9 @@ export const ja: Dict = {
   'fileViewer.templateNameDefault': '無題のテンプレート',
   'fileViewer.templateDescPrompt':
     '短い説明（省略可 — このテンプレートの使いどころは？）',
-  'fileViewer.deployToVercel': 'Vercel にデプロイ',
-  'fileViewer.redeployToVercel': '再デプロイ',
-  'fileViewer.deployingToVercel': 'Vercel にデプロイ中…',
   'fileViewer.preparingPublicLink': '公開リンクを準備中…',
-  'fileViewer.copyDeployLink': 'リンクをコピー',
-  'fileViewer.deployModalTitle': 'Vercel にデプロイ',
-  'fileViewer.deployModalSubtitle':
-    'この HTML アーティファクトをご自身のアカウントを使用して Vercel Preview としてデプロイします。',
-  'fileViewer.vercelToken': 'Vercel トークン',
-  'fileViewer.vercelTokenGetLink': 'Vercel トークンを取得',
-  'fileViewer.vercelTokenPlaceholder': 'Vercel トークンを貼り付け',
-  'fileViewer.vercelTokenReuseHint':
-    '保存済みトークンが使用されます。新しいトークンを入力すると置き換えられます。',
-  'fileViewer.vercelTokenRequired': '最初に Vercel トークンを入力して保存してください。',
-  'fileViewer.vercelTeamId': 'チーム ID',
-  'fileViewer.vercelTeamSlug': 'チームスラッグ',
   'fileViewer.optional': '省略可',
-  'fileViewer.vercelPreviewOnly': 'デプロイは現在 Preview のみです。',
   'fileViewer.savingConfig': '保存中…',
-  'fileViewer.deployConfigSaveFailed': 'Vercel の設定を保存できませんでした。',
-  'fileViewer.deployFailed': 'デプロイに失敗しました。Vercel の設定を確認して再試行してください。',
-  'fileViewer.deployResultLabel': 'デプロイ URL',
-  'fileViewer.deployLinkPreparingLabel': '公開リンク準備中',
-  'fileViewer.deployLinkDelayed':
-    'サイトはデプロイされました。Vercel が公開リンクを準備中です。',
-  'fileViewer.deployLinkProtectedLabel': 'Vercel の保護が有効',
-  'fileViewer.deployLinkProtected':
-    'サイトはデプロイされましたが、Vercel がこのプレビューリンクに認証を要求しています。デプロイ保護を無効にするかカスタムドメインを使用してください。',
   'fileViewer.retryLink': '今すぐ再試行',
 
   'questionForm.submit': '送信',
@@ -776,11 +751,6 @@ export const ja: Dict = {
   'pet.codexRefresh': '更新',
   'pet.codexAdopt': '採用',
   'pet.codexAdopting': '採用中…',
-  'pet.communitySync': 'コミュニティペットをダウンロード',
-  'pet.communitySyncing': 'ダウンロード中…',
-  'pet.communitySyncTitle': 'Codex Pet Share と j20 Hatchery の最新ペットを ~/.codex/pets/ に同期します。',
-  'pet.communitySyncDone': '{wrote} 体の新しいペットを同期しました（合計 {total} 体）。',
-  'pet.communitySyncFailed': '同期に失敗しました: {error}',
   'pet.codexBundled': '同梱',
   'pet.codexBundledTitle': 'Open Design に同梱 — ダウンロード不要。',
 };

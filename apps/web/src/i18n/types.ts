@@ -555,30 +555,9 @@ export interface Dict {
   'fileViewer.templateNamePrompt': string;
   'fileViewer.templateNameDefault': string;
   'fileViewer.templateDescPrompt': string;
-  'fileViewer.deployToVercel': string;
-  'fileViewer.redeployToVercel': string;
-  'fileViewer.deployingToVercel': string;
-  'fileViewer.preparingPublicLink': string;
-  'fileViewer.copyDeployLink': string;
-  'fileViewer.deployModalTitle': string;
-  'fileViewer.deployModalSubtitle': string;
-  'fileViewer.vercelToken': string;
-  'fileViewer.vercelTokenGetLink': string;
-  'fileViewer.vercelTokenPlaceholder': string;
-  'fileViewer.vercelTokenReuseHint': string;
-  'fileViewer.vercelTokenRequired': string;
-  'fileViewer.vercelTeamId': string;
-  'fileViewer.vercelTeamSlug': string;
   'fileViewer.optional': string;
-  'fileViewer.vercelPreviewOnly': string;
+  'fileViewer.preparingPublicLink': string;
   'fileViewer.savingConfig': string;
-  'fileViewer.deployConfigSaveFailed': string;
-  'fileViewer.deployFailed': string;
-  'fileViewer.deployResultLabel': string;
-  'fileViewer.deployLinkPreparingLabel': string;
-  'fileViewer.deployLinkDelayed': string;
-  'fileViewer.deployLinkProtectedLabel': string;
-  'fileViewer.deployLinkProtected': string;
   'fileViewer.retryLink': string;
 
   // Question form (assistant question UX)
@@ -785,11 +764,6 @@ export interface Dict {
   'pet.codexRefresh': string;
   'pet.codexAdopt': string;
   'pet.codexAdopting': string;
-  'pet.communitySync': string;
-  'pet.communitySyncing': string;
-  'pet.communitySyncTitle': string;
-  'pet.communitySyncDone': string;
-  'pet.communitySyncFailed': string;
   'pet.codexBundled': string;
   'pet.codexBundledTitle': string;
 

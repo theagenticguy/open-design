@@ -544,34 +544,9 @@ export const esES: Dict = {
   'fileViewer.templateNameDefault': 'Plantilla sin título',
   'fileViewer.templateDescPrompt':
     'Descripción breve (opcional: ¿qué hace útil esta plantilla?)',
-  'fileViewer.deployToVercel': 'Desplegar en Vercel',
-  'fileViewer.redeployToVercel': 'Volver a desplegar',
-  'fileViewer.deployingToVercel': 'Desplegando en Vercel…',
   'fileViewer.preparingPublicLink': 'Preparando enlace público…',
-  'fileViewer.copyDeployLink': 'Copiar enlace',
-  'fileViewer.deployModalTitle': 'Desplegar en Vercel',
-  'fileViewer.deployModalSubtitle':
-    'Despliega este artefacto HTML como Preview de Vercel usando tu propia cuenta.',
-  'fileViewer.vercelToken': 'Token de Vercel',
-  'fileViewer.vercelTokenGetLink': 'Obtener token de Vercel',
-  'fileViewer.vercelTokenPlaceholder': 'Pega tu token de Vercel',
-  'fileViewer.vercelTokenReuseHint':
-    'Se usará el token guardado. Introduce uno nuevo para reemplazarlo.',
-  'fileViewer.vercelTokenRequired': 'Introduce y guarda primero un token de Vercel.',
-  'fileViewer.vercelTeamId': 'Team ID',
-  'fileViewer.vercelTeamSlug': 'Team slug',
   'fileViewer.optional': 'Opcional',
-  'fileViewer.vercelPreviewOnly': 'Por ahora los despliegues son solo Preview.',
   'fileViewer.savingConfig': 'Guardando…',
-  'fileViewer.deployConfigSaveFailed': 'No se pudieron guardar los ajustes de Vercel.',
-  'fileViewer.deployFailed': 'El despliegue falló. Revisa los ajustes de Vercel e inténtalo de nuevo.',
-  'fileViewer.deployResultLabel': 'URL desplegada',
-  'fileViewer.deployLinkPreparingLabel': 'Enlace público pendiente',
-  'fileViewer.deployLinkDelayed':
-    'Tu sitio está desplegado. Vercel todavía está preparando el enlace público.',
-  'fileViewer.deployLinkProtectedLabel': 'Protección de Vercel activada',
-  'fileViewer.deployLinkProtected':
-    'Tu sitio se desplegó, pero Vercel exige autenticación para este enlace de preview. Desactiva Deployment Protection o usa un dominio personalizado.',
   'fileViewer.retryLink': 'Reintentar ahora',
 
   'questionForm.submit': 'Enviar',
@@ -778,11 +753,6 @@ export const esES: Dict = {
   'pet.codexRefresh': 'Refrescar',
   'pet.codexAdopt': 'Adoptar',
   'pet.codexAdopting': 'Adoptando…',
-  'pet.communitySync': 'Descargar mascotas de la comunidad',
-  'pet.communitySyncing': 'Descargando…',
-  'pet.communitySyncTitle': 'Sincronizar las últimas mascotas de Codex Pet Share + j20 Hatchery en ~/.codex/pets/.',
-  'pet.communitySyncDone': '{wrote} mascotas nuevas sincronizadas ({total} en total).',
-  'pet.communitySyncFailed': 'Error al sincronizar: {error}',
   'pet.codexBundled': 'Incluida',
   'pet.codexBundledTitle': 'Viene con Open Design — sin descarga.',
 };

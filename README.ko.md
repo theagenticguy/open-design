@@ -31,9 +31,9 @@
 
 ## 왜 만들었는가
 
-Anthropic의 [Claude Design][cd](2026-04-17 출시, Opus 4.7 기반)은 LLM이 장문의 글쓰기를 멈추고 디자인 산출물을 직접 내놓기 시작했을 때 어떤 일이 일어나는지 보여주었습니다. 순식간에 화제가 되었지만, 여전히 **클로즈드 소스**, 유료, 클라우드 전용, Anthropic 모델과 Anthropic 내부 skill에 종속된 상태입니다. 체크아웃도, 자가 호스팅도, Vercel 배포도, 에이전트 교체도 불가능합니다.
+Anthropic의 [Claude Design][cd](2026-04-17 출시, Opus 4.7 기반)은 LLM이 장문의 글쓰기를 멈추고 디자인 산출물을 직접 내놓기 시작했을 때 어떤 일이 일어나는지 보여주었습니다. 순식간에 화제가 되었지만, 여전히 **클로즈드 소스**, 유료, 클라우드 전용, Anthropic 모델과 Anthropic 내부 skill에 종속된 상태입니다. 체크아웃도, 자가 호스팅도, 에이전트 교체도 불가능합니다.
 
-**Open Design(OD)은 그 오픈소스 대안입니다.** 동일한 루프, 동일한 '아티팩트 우선' 사고방식, 락인 없음. 우리는 에이전트를 만들지 않습니다 — 가장 강력한 코딩 에이전트는 이미 여러분의 노트북에 있습니다. 우리는 그것을 skill 기반 디자인 워크플로에 연결할 뿐입니다. 로컬에서는 `pnpm tools-dev`로 실행하고, 웹 레이어는 Vercel에 배포할 수 있으며, 모든 레이어에서 BYOK(자체 키 사용)가 가능합니다.
+**Open Design(OD)은 그 오픈소스 대안입니다.** 동일한 루프, 동일한 '아티팩트 우선' 사고방식, 락인 없음. 우리는 에이전트를 만들지 않습니다 — 가장 강력한 코딩 에이전트는 이미 여러분의 노트북에 있습니다. 우리는 그것을 skill 기반 디자인 워크플로에 연결할 뿐입니다. 로컬에서는 `pnpm tools-dev`로 실행하고, 모든 레이어에서 BYOK(자체 키 사용)가 가능합니다.
 
 `시드 라운드를 위한 매거진 스타일 피치덱 만들어줘`라고 입력하세요. 모델이 픽셀 하나 그리기 전에 **초기화 질문 폼**이 먼저 등장합니다. 에이전트는 5개의 엄선된 시각적 방향 중 하나를 선택합니다. 실시간 `TodoWrite` 계획 카드가 UI에 스트리밍됩니다. Daemon이 디스크에 실제 프로젝트 폴더를 생성하며, seed 템플릿, 레이아웃 라이브러리, 자가 점검 체크리스트가 포함됩니다. 에이전트는 **pre-flight를 강제**로 읽고, 자신의 출력물에 대해 **5차원 검토**를 실행하며, 몇 초 후 샌드박스 iframe에 렌더링되는 단일 `<artifact>`를 내보냅니다.
 
@@ -52,7 +52,7 @@ OD는 네 개의 오픈소스 프로젝트의 어깨 위에 서 있습니다:
 |---|---|
 | **코딩 에이전트 CLI(10개)** | Claude Code · Codex CLI · Cursor Agent · Gemini CLI · OpenCode · Qwen Code · GitHub Copilot CLI · Hermes(ACP) · Kimi CLI(ACP) · Pi(RPC) — `PATH`에서 자동 감지, 한 번의 클릭으로 전환 |
 | **BYOK 폴백** | OpenAI 호환 프록시 `/api/proxy/stream` — `baseUrl` + `apiKey` + `model`만 붙여 넣으면 어떤 벤더(Anthropic-via-OpenAI 어댑터, DeepSeek, Groq, MiMo, OpenRouter, 자체 호스팅 vLLM, 또는 OpenAI 호환 프로바이더 무엇이든)든 엔진이 됩니다. daemon 경계에서 내부 IP / SSRF를 차단합니다. |
-| **내장 디자인 시스템** | **72개** — 2개의 수작업 스타터 + [`awesome-design-md`][acd2]에서 가져온 70개의 제품 시스템(Linear, Stripe, Vercel, Airbnb, Tesla, Notion, Anthropic, Apple, Cursor, Supabase, Figma, Xiaohongshu …) |
+| **내장 디자인 시스템** | **70개** — 2개의 수작업 스타터 + [`awesome-design-md`][acd2]에서 가져온 68개의 제품 시스템(Linear, Stripe, Airbnb, Tesla, Notion, Anthropic, Apple, Cursor, Figma, Xiaohongshu …) |
 | **내장 Skill** | **31개** — `prototype` 모드 27개(web-prototype, saas-landing, dashboard, mobile-app, gamified-app, social-carousel, magazine-poster, dating-web, sprite-animation, motion-frames, critique, tweaks, wireframe-sketch, pm-spec, eng-runbook, finance-report, hr-onboarding, invoice, kanban-board, team-okrs …) + `deck` 모드 4개(`guizang-ppt` · `simple-deck` · `replit-deck` · `weekly-update`). picker에서 `scenario`로 그룹화: design / marketing / operation / engineering / product / finance / hr / sale / personal. |
 | **미디어 생성** | 이미지 · 비디오 · 오디오 surface가 디자인 루프와 함께 작동합니다. **gpt-image-2**(Azure / OpenAI)로 포스터, 아바타, 인포그래픽, 일러스트 도시 지도 · **Seedance 2.0**(ByteDance)로 15초 시네마틱 text-to-video / image-to-video · **HyperFrames**([heygen-com/hyperframes](https://github.com/heygen-com/hyperframes))로 HTML→MP4 모션 그래픽(제품 리빌, 키네틱 타이포그래피, 데이터 차트, 소셜 오버레이, 로고 아웃트로). **93개**의 즉시 복제 가능한 prompt 갤러리 — 43 gpt-image-2 + 39 Seedance + 11 HyperFrames — 모두 [`prompt-templates/`](prompt-templates/) 아래에 미리보기 썸네일과 출처 표기와 함께 배치. 채팅 입구는 코드와 동일; 실제 `.mp4` / `.png`이 프로젝트 워크스페이스에 chip으로 떨어집니다. |
 | **시각적 방향** | 5개의 엄선된 학파(Editorial Monocle · Modern Minimal · Warm Soft · Tech Utility · Brutalist Experimental) — 각각 결정론적 OKLch 팔레트 + 폰트 스택 제공([`apps/web/src/prompts/directions.ts`](apps/web/src/prompts/directions.ts)) |
@@ -62,7 +62,7 @@ OD는 네 개의 오픈소스 프로젝트의 어깨 위에 서 있습니다:
 | **영속성** | `.od/app.sqlite`의 SQLite: projects · conversations · messages · tabs · 사용자 templates. 내일 다시 열면 todo 카드와 열린 파일 모두 어제 그 자리. |
 | **라이프사이클** | 단일 입구 `pnpm tools-dev`(start / stop / run / status / logs / inspect / check) — 타입화된 sidecar 스탬프로 daemon + web(+ desktop) 구동 |
 | **데스크탑** | 선택적 Electron 셸: 샌드박스 렌더러 + sidecar IPC(STATUS / EVAL / SCREENSHOT / CONSOLE / CLICK / SHUTDOWN) — 같은 채널이 `tools-dev inspect desktop screenshot`을 구동해 E2E를 돌립니다 |
-| **배포 대상** | 로컬(`pnpm tools-dev`) · Vercel 웹 레이어 · 패키지된 Electron(자리만 잡힘, 진행 중) |
+| **배포 대상** | 로컬(`pnpm tools-dev`) · 패키지된 Electron(자리만 잡힘, 진행 중) |
 | **라이선스** | Apache-2.0 |
 
 [acd2]: https://github.com/VoltAgent/awesome-design-md
@@ -225,7 +225,7 @@ Claude Code의 [`SKILL.md` 규약](https://docs.anthropic.com/en/docs/claude-cod
 
 ### 3 · 디자인 시스템은 테마 JSON이 아닌 이식 가능한 Markdown입니다.
 
-[`VoltAgent/awesome-design-md`][acd2]의 9섹션 `DESIGN.md` 스키마 — color, typography, spacing, layout, components, motion, voice, brand, anti-patterns. 모든 아티팩트가 활성 시스템에서 읽습니다. 시스템 전환 → 다음 렌더에 새 토큰 사용. 드롭다운에는 **Linear, Stripe, Vercel, Airbnb, Tesla, Notion, Apple, Anthropic, Cursor, Supabase, Figma, Resend, Raycast, Lovable, Cohere, Mistral, ElevenLabs, X.AI, Spotify, Webflow, Sanity, PostHog, Sentry, MongoDB, ClickHouse, Cal, Replicate, Clay, Composio, Xiaohongshu …** 총 72개가 있습니다.
+[`VoltAgent/awesome-design-md`][acd2]의 9섹션 `DESIGN.md` 스키마 — color, typography, spacing, layout, components, motion, voice, brand, anti-patterns. 모든 아티팩트가 활성 시스템에서 읽습니다. 시스템 전환 → 다음 렌더에 새 토큰 사용. 드롭다운에는 **Linear, Stripe, Airbnb, Tesla, Notion, Apple, Anthropic, Cursor, Figma, Resend, Raycast, Lovable, Cohere, Mistral, ElevenLabs, X.AI, Spotify, Webflow, Sanity, PostHog, Sentry, MongoDB, ClickHouse, Cal, Replicate, Clay, Composio, Xiaohongshu …** 총 70개가 있습니다.
 
 ### 4 · 초기화 질문 폼이 수정 작업의 80%를 막아줍니다.
 
@@ -286,7 +286,7 @@ DISCOVERY 지시문    (turn-1 폼, turn-2 브랜드 분기, TodoWrite, 5차원 
 
 | 레이어 | 스택 |
 |---|---|
-| 프론트엔드 | Next.js 16 App Router + React 18 + TypeScript, Vercel 배포 가능 |
+| 프론트엔드 | Next.js 16 App Router + React 18 + TypeScript |
 | Daemon | Node 24 · Express · SSE 스트리밍 · `better-sqlite3`; 테이블: `projects` · `conversations` · `messages` · `tabs` · `templates` |
 | 에이전트 전송 | `child_process.spawn`; 타입 이벤트 파서: `claude-stream-json`(Claude Code), `copilot-stream-json`(Copilot), `json-event-stream` + 각 CLI 파서(Codex / Gemini / OpenCode / Cursor Agent), `acp-json-rpc`(Hermes / Kimi via Agent Client Protocol), `pi-rpc`(Pi via stdio JSON-RPC), `plain`(Qwen Code) |
 | BYOK 프록시 | `POST /api/proxy/stream` → OpenAI 호환 `/v1/chat/completions`, SSE 통과; daemon 경계에서 loopback / link-local / RFC1918 호스트 거부 |
@@ -399,10 +399,10 @@ open-design/
 │       ├── assets/template.html   ← seed
 │       └── references/{themes,layouts,components,checklist}.md
 │
-├── design-systems/                ← 72개 DESIGN.md 시스템
+├── design-systems/                ← 70개 DESIGN.md 시스템
 │   ├── default/                   ← Neutral Modern(스타터)
 │   ├── warm-editorial/            ← Warm Editorial(스타터)
-│   ├── linear-app/  vercel/  stripe/  airbnb/  notion/  cursor/  apple/  …
+│   ├── linear-app/  stripe/  airbnb/  notion/  cursor/  apple/  …
 │   └── README.md                  ← 카탈로그 개요
 │
 ├── assets/
@@ -449,7 +449,7 @@ open-design/
 
 **AI & LLM** — `claude` · `cohere` · `mistral-ai` · `minimax` · `together-ai` · `replicate` · `runwayml` · `elevenlabs` · `ollama` · `x-ai`
 
-**개발자 도구** — `cursor` · `vercel` · `linear-app` · `framer` · `expo` · `clickhouse` · `mongodb` · `supabase` · `hashicorp` · `posthog` · `sentry` · `warp` · `webflow` · `sanity` · `mintlify` · `lovable` · `composio` · `opencode-ai` · `voltagent`
+**개발자 도구** — `cursor` · `linear-app` · `framer` · `expo` · `clickhouse` · `mongodb` · `hashicorp` · `posthog` · `sentry` · `warp` · `webflow` · `sanity` · `mintlify` · `lovable` · `composio` · `opencode-ai` · `voltagent`
 
 **생산성** — `notion` · `figma` · `miro` · `airtable` · `superhuman` · `intercom` · `zapier` · `cal` · `clay` · `raycast`
 
@@ -476,7 +476,7 @@ open-design/
 | 방향 | 무드 | 참고 |
 |---|---|---|
 | Editorial — Monocle / FT | 인쇄 매거진, 잉크 + 크림 + 따뜻한 러스트 | Monocle · FT Weekend · NYT Magazine |
-| Modern minimal — Linear / Vercel | 쿨, 구조적, 미니멀 액센트 | Linear · Vercel · Stripe |
+| Modern minimal — Linear | 쿨, 구조적, 미니멀 액센트 | Linear · Stripe |
 | Tech utility | 정보 밀도, 모노스페이스, 터미널 | Bloomberg · Bauhaus 도구 |
 | Brutalist | 날것, 거대한 타입, 그림자 없음, 강한 액센트 | Bloomberg Businessweek · Achtung |
 | Soft warm | 여유롭고, 낮은 대비, 복숭아 계열 뉴트럴 | Notion 마케팅 · Apple Health |
@@ -586,10 +586,9 @@ OD는 코드에서 끝나지 않습니다. `<artifact>` HTML을 만드는 동일
 |---|---|---|---|
 | 라이선스 | 클로즈드 | MIT | **Apache-2.0** |
 | 폼 팩터 | 웹(claude.ai) | 데스크탑(Electron) | **웹앱 + 로컬 daemon** |
-| Vercel 배포 가능 | ❌ | ❌ | **✅** |
 | 에이전트 런타임 | 번들됨(Opus 4.7) | 번들됨([`pi-ai`][piai]) | **사용자 기존 CLI에 위임** |
 | Skill | 독점 | 12개 커스텀 TS 모듈 + `SKILL.md` | **31개 파일 기반 [`SKILL.md`][skill] 번들, 드롭 가능** |
-| 디자인 시스템 | 독점 | `DESIGN.md`(v0.2 로드맵) | **`DESIGN.md` × 72개 시스템 기본 제공** |
+| 디자인 시스템 | 독점 | `DESIGN.md`(v0.2 로드맵) | **`DESIGN.md` × 70개 시스템 기본 제공** |
 | 프로바이더 유연성 | Anthropic 전용 | [`pi-ai`][piai]를 통해 7+ | **10개 CLI 어댑터 + OpenAI 호환 BYOK 프록시** |
 | 초기화 질문 폼 | ❌ | ❌ | **✅ 하드 규칙, turn 1** |
 | 방향 선택기 | ❌ | ❌ | **✅ 5가지 결정론적 방향** |
@@ -654,7 +653,7 @@ daemon 부팅 시 `PATH`에서 자동 감지됩니다. 설정 필요 없음. 스
 
 - [x] Daemon + 에이전트 감지(10개 CLI 어댑터) + skill 레지스트리 + 디자인 시스템 카탈로그
 - [x] 웹앱 + 채팅 + 질문 폼 + 5가지 방향 선택기 + 할 일 진행 + 샌드박스 미리보기
-- [x] 31개 skill + 72개 디자인 시스템 + 5가지 시각적 방향 + 5개 기기 프레임
+- [x] 31개 skill + 70개 디자인 시스템 + 5가지 시각적 방향 + 5개 기기 프레임
 - [x] SQLite 기반 projects · conversations · messages · tabs · templates
 - [x] OpenAI 호환 BYOK 프록시(`/api/proxy/stream`) + SSRF 차단
 - [x] Claude Design ZIP 임포트(`/api/import/claude-design`)
@@ -662,7 +661,6 @@ daemon 부팅 시 `PATH`에서 자동 감지됩니다. 설정 필요 없음. 스
 - [x] Artifact lint API + 5차원 자기 검토 내보내기 전 게이트
 - [ ] 코멘트 모드 수술적 편집(요소 클릭 → 지시 → 패치) — [`open-codesign`][ocod]에서 가져온 패턴
 - [ ] AI 제안 트윅 패널 UX — 빌딩 블록([`tweaks` skill](skills/tweaks/))은 출시, 채팅 통합 패널은 미완
-- [ ] Vercel + 터널 배포 레시피(Topology B)
 - [ ] `DESIGN.md`로 프로젝트를 스캐폴딩하는 원클릭 `npx od init`
 - [ ] Skill 마켓플레이스(`od skills install <github-repo>`)와 `od skill add | list | remove | test` CLI 표면([`docs/skills-protocol.md`](docs/skills-protocol.md)에 초안 작성됨, 구현 미완)
 - [ ] `apps/packaged/`에서 패키지된 Electron 빌드

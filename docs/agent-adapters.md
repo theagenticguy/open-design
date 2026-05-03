@@ -137,7 +137,7 @@ The adapter declares which strategy to use via `capabilities().nativeSkillLoadin
 - Tool use: we register `Read/Write/Edit` as tools, implement them in the daemon against the artifact cwd, and run the loop ourselves. This is the one place OD does own the loop — because the user has no agent at all. Keep it as dumb as possible.
 - Surgical edits: approximated by regenerating the whole target file with "only change X" in the prompt.
 - Model: Claude Sonnet 4.6 default; Opus 4.7 behind a flag.
-- **Why ship this at all?** Topology C requires it (no daemon available in a pure-Vercel deploy). Also, users trying OD for the first time without a CLI installed still get a working experience.
+- **Why ship this at all?** Gives users trying OD for the first time without a CLI installed a working experience.
 
 ### 5.3 Codex
 

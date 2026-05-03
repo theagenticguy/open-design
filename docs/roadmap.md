@@ -55,7 +55,6 @@ Phased plan from "spec-only today" to "usable MVP" to "published v1." All estima
   - **Template** (deferred to Phase 2)
 - Topologies
   - **A — fully local** (primary)
-  - **C — Vercel + direct API** (partial; no daemon features)
 
 **Explicitly out of MVP:**
 - Codex / Cursor / Gemini adapters
@@ -63,7 +62,6 @@ Phased plan from "spec-only today" to "usable MVP" to "published v1." All estima
 - Template gallery + template skill
 - Design System from screenshot (vision) / PDF / URL
 - PDF / PPTX export
-- Topology B (Vercel + tunneled local daemon)
 - Docker compose file
 - Skill tests (`od skill test`)
 - Auth / multi-user
@@ -113,7 +111,7 @@ Phased plan from "spec-only today" to "usable MVP" to "published v1." All estima
 - **Design System editor** (split view: markdown ↔ sample-components preview)
 
 **Skills:**
-- Template skills: `stripe-ish-landing`, `linear-ish-docs`, `notion-ish-workspace`, `vercel-ish-pricing`
+- Template skills: `stripe-ish-landing`, `linear-ish-docs`, `notion-ish-workspace`
 - More Prototype skills: `dashboard`, `login-flow`, `empty-state-pack`, `pricing-page`
 - More Deck skills: `pitch-deck`, `product-demo-deck`
 - Design System skills: `design-system-from-screenshot`, `design-system-refine`
@@ -128,8 +126,6 @@ Phased plan from "spec-only today" to "usable MVP" to "published v1." All estima
 
 **Deployment:**
 - Docker compose file
-- Topology B: Vercel web + tunneled local daemon
-  - Ship a helper subcommand: `od daemon --expose` using `cloudflared` (opt-in, documented)
 
 **Dev experience:**
 - `od skill test` with cheap-model runs
@@ -140,9 +136,8 @@ Phased plan from "spec-only today" to "usable MVP" to "published v1." All estima
 1. All four modes fully functional.
 2. Three adapters working (Claude Code, Codex, Cursor Agent); fallback chain shipping.
 3. PDF + PPTX export working for at least the `magazine-web-ppt` + `pitch-deck` skills.
-4. Deployed example at `demo.open-design.dev` (Topology C).
-5. Skill author docs published; at least one third-party skill submitted.
-6. Documentation site rebuilt from these spec docs.
+4. Skill author docs published; at least one third-party skill submitted.
+5. Documentation site rebuilt from these spec docs.
 
 ---
 
@@ -172,7 +167,6 @@ v2 isn't promised. It's the direction if v1 lands.
 | Claude Code JSON stream format changes between versions | adapter breaks | pin version range; write a compatibility test; keep a parser for each major release |
 | Third-party agent CLIs don't expose enough to stream tool calls | UX degrades silently | capability flags + feature gates; document per-adapter limitations in-product |
 | `@mariozechner/pi-ai` or similar abstractions get popular and contributors ask us to support them | scope creep | defer; if demand is real, add as yet-another-adapter next to `api-fallback` |
-| Vercel deploy (Topology B) flaky because of tunnel setup | users can't try the cloud path | ship Topology C (direct API) as the always-works path; document Topology B as advanced |
 | `guizang-ppt-skill` or similar upstream skill changes format | default deck skill breaks | pin git SHA in our default install; monitor upstream |
 | DESIGN.md format evolves in awesome-claude-design | incompatibility | track upstream; adopt changes; our resolver is tolerant of missing sections |
 | Anthropic ships an open-source Claude Design | differentiation collapses | our moat is the "uses user's existing agent" angle; Anthropic is unlikely to ship that |

@@ -77,10 +77,10 @@ export const DESIGN_DIRECTIONS: DesignDirection[] = [
   },
   {
     id: 'modern-minimal',
-    label: 'Modern minimal — Linear / Vercel',
+    label: 'Modern minimal — Linear',
     mood:
       'Quiet, precise, software-native. System fonts, near-greyscale palette, a single saturated accent. The chrome disappears so content is the only thing that registers.',
-    references: ['Linear', 'Vercel', 'Notion 2024', 'Stripe docs'],
+    references: ['Linear', 'Notion 2024', 'Stripe docs'],
     displayFont:
       "-apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif",
     bodyFont:

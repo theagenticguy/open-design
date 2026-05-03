@@ -158,7 +158,6 @@ A template is a special kind of skill (`mode: template`) with this layout:
 - `stripe-ish-landing`
 - `linear-ish-docs`
 - `notion-ish-workspace`
-- `vercel-ish-pricing`
 - (Names are nods to inspirations, not copies; we don't ship infringing clones.)
 
 ### Failure modes
