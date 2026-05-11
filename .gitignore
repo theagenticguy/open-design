@@ -43,3 +43,10 @@ tsconfig.tsbuildinfo
 task.md
 specs/change/active
 .ralph/
+# OpenCodeHub local state
+.codehub/
+# ERPAVal — durables (INDEX.md, solutions/, brainstorms/, specs/) are committed; sessions/ is per-run state
+.erpaval/sessions/
+# Local agent / tooling configs (Claude Code MCP setup, OpenCodeHub policy)
+.mcp.json
+opencodehub.policy.yaml
