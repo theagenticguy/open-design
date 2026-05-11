@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Quarterly Field Notes</title>
+<style>
+:root {
+  --paper: #faf7f2;
+  --ink: #1a1a1a;
+  --ink-soft: #555;
+  --rule: #d8d4cc;
+  --accent: #c2410c;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Source Serif Pro", Georgia, serif;
+}
+body {
+  font-family: var(--font-body);
+  background: var(--paper);
+  color: var(--ink);
+  margin: 0;
+  line-height: 1.6;
+}
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+h1 { font-size: 2.5rem; max-width: 18ch; }
+.byline { color: var(--ink-soft); font-size: 0.875rem; }
+section { padding: 3rem 1.5rem; max-width: 36rem; margin: 0 auto; }
+.cta { background: var(--ink); color: var(--paper); padding: 0.75rem 1.5rem; }
+</style>
+</head>
+<body>
+<section data-od-id="cover">
+  <p class="byline">Field Notes — issue 04</p>
+  <h1>What we learned shipping the Aurora migration.</h1>
+  <p>We moved the production cluster across regions over a long weekend. The migration ran ahead of schedule. Two things broke that we didn't expect.</p>
+  <a class="cta" href="#read">Read the full report</a>
+</section>
+</body>
+</html>
