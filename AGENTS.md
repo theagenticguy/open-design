@@ -4,8 +4,8 @@ This file is the single source of truth for agents entering this repository. Rea
 
 ## Core documentation index
 
-- Product and onboarding: `README.md`, `README.zh-CN.md`, `QUICKSTART.md`.
-- Contribution and environment: `CONTRIBUTING.md`, `CONTRIBUTING.zh-CN.md`.
+- Product and onboarding: `README.md`, `i18n/zh-CN/README.md`, `QUICKSTART.md`.
+- Contribution and environment: `CONTRIBUTING.md`, `i18n/zh-CN/CONTRIBUTING.md`.
 - Architecture and protocols: `docs/spec.md`, `docs/architecture.md`, `docs/skills-protocol.md`, `docs/agent-adapters.md`, `docs/modes.md`.
 - Roadmap and references: `docs/roadmap.md`, `docs/references.md`, `specs/current/maintainability-roadmap.md`.
 - Directory-level agent guidance: `apps/AGENTS.md`, `packages/AGENTS.md`, `tools/AGENTS.md`.

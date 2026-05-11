@@ -25,7 +25,7 @@
   <a href="QUICKSTART.md"><img alt="Quickstart" src="https://img.shields.io/badge/quickstart-3%20commands-green?style=flat-square" /></a>
 </p>
 
-<p align="center"><b>English</b> · <a href="README.de.md">Deutsch</a> · <a href="README.zh-CN.md">简体中文</a> · <a href="README.zh-TW.md">繁體中文</a> · <a href="README.ko.md">한국어</a> · <a href="README.ja-JP.md">日本語</a></p>
+<p align="center"><b>English</b> · <a href="i18n/de/README.md">Deutsch</a> · <a href="i18n/zh-CN/README.md">简体中文</a> · <a href="i18n/zh-TW/README.md">繁體中文</a> · <a href="i18n/ko/README.md">한국어</a> · <a href="i18n/ja/README.md">日本語</a></p>
 
 ---
 
@@ -693,7 +693,7 @@ Issues, PRs, new skills, and new design systems are all welcome. The highest-lev
 - **Add a design system** — drop a `DESIGN.md` into [`design-systems/<brand>/`](design-systems/) using the 9-section schema.
 - **Wire up a new coding-agent CLI** — one entry in [`apps/daemon/src/agents.ts`](apps/daemon/src/agents.ts).
 
-Full walkthrough, bar-for-merging, code style, and what we don't accept → [`CONTRIBUTING.md`](CONTRIBUTING.md) ([Deutsch](CONTRIBUTING.de.md), [简体中文](CONTRIBUTING.zh-CN.md)).
+Full walkthrough, bar-for-merging, code style, and what we don't accept → [`CONTRIBUTING.md`](CONTRIBUTING.md) ([Deutsch](i18n/de/CONTRIBUTING.md), [简体中文](i18n/zh-CN/CONTRIBUTING.md)).
 
 ## Contributors
 

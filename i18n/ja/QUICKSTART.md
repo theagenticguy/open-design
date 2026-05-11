@@ -1,6 +1,6 @@
 # クイックスタート
 
-<p align="center"><a href="QUICKSTART.md">English</a> · <a href="QUICKSTART.de.md">Deutsch</a> · <b>日本語</b></p>
+<p align="center"><a href="../../QUICKSTART.md">English</a> · <a href="../de/QUICKSTART.md">Deutsch</a> · <b>日本語</b></p>
 
 製品全体をローカルで実行します。
 

@@ -4,7 +4,7 @@ Thanks for thinking about contributing. OD is small on purpose — most of the v
 
 This guide tells you exactly where to look for each type of contribution and what bar a PR has to clear before we merge it.
 
-<p align="center"><b>English</b> · <a href="CONTRIBUTING.de.md">Deutsch</a> · <a href="CONTRIBUTING.zh-CN.md">简体中文</a> · <a href="CONTRIBUTING.ja-JP.md">日本語</a></p>
+<p align="center"><b>English</b> · <a href="i18n/de/CONTRIBUTING.md">Deutsch</a> · <a href="i18n/zh-CN/CONTRIBUTING.md">简体中文</a> · <a href="i18n/ja/CONTRIBUTING.md">日本語</a></p>
 
 ---
 

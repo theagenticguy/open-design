@@ -19,7 +19,7 @@
 - [modules/project-and-generation.md](/Users/mac/open-design/open-design/e2e/cases/modules/project-and-generation.md)：项目创建与生成链路用例
 - [modules/conversations.md](/Users/mac/open-design/open-design/e2e/cases/modules/conversations.md)：会话生命周期用例
 - [modules/files.md](/Users/mac/open-design/open-design/e2e/cases/modules/files.md)：文件上传、mention、预览恢复用例
-- [../reports/README.zh-CN.md](/Users/mac/open-design/open-design/e2e/reports/README.zh-CN.md)：测试结果与报告说明
+- [../reports/README.zh-CN.md](../reports/README.md)：测试结果与报告说明
 - [../specs/app.spec.ts](/Users/mac/open-design/open-design/e2e/specs/app.spec.ts)：执行已自动化用例的 Playwright 入口
 
 ## Schema 说明
