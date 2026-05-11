@@ -1,0 +1,8 @@
+# Curation files — keep "ours" on every upstream merge.
+# Register driver once with: git config merge.ours.driver true
+# (scripts/sync-upstream.sh does this automatically.)
+LAITHS_PICKS.md             merge=ours
+craft/anti-ai-slop-laith.md merge=ours
+scripts/sync-upstream.sh    merge=ours
+scripts/scrub-translations.sh merge=ours
+.gitattributes              merge=ours
